@@ -1,9 +1,24 @@
 <h1>List: <%= @list.name %></h1>
 
+
+  <%#= record %>
+  <%#= record.movie_id %>
+  <%#= record.comment %>
+<%#"" end %>
 <%#= raise %>
 
 <div class="container">
-
+  <% movie_id = Bookmark.all.find_by(list_id: params[:id]).movie_id %>
+  <div class="card" style="width: 18rem;">
+    <img src="<%= Movie.all.find_by(id: movie_id).poster_url %>" class="card-img-top" alt="<%= Movie.all.find_by(id: movie_id).title %> poster">
+    <div class="card-body">
+      <h5 class="card-title"><%= Movie.all.find_by(id: movie_id).title %></h5>
+      <p class="card-text"><%= Movie.all.find_by(id: movie_id).overview %></p>
+      <p class="card-text">Rating: <%= Movie.all.find_by(id: movie_id).rating %></p>
+      <p class="card-text">Bookmark comments: <%= Bookmark.all.find_by(list_id: params[:id]).comment %></p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
 </div>
 
 <%= link_to "My Lists", lists_path %>
