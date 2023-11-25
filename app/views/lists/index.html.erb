@@ -1,0 +1,11 @@
+<h1>Lists#index</h1>
+
+<div class="container">
+  <% @lists.each do |list| %>
+    <li>
+      <%= link_to list.name, list_path(list.id)%>
+    </li>
+  <% end %>
+</div>
+
+<%= link_to "Create a movie list", new_list_path %>

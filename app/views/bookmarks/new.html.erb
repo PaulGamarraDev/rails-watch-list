@@ -1,0 +1,12 @@
+<h1>Bookmarks#new <h1>List: <%= @list.name %></h1> </h1>
+<div class="container">
+  <%= simple_form_for @bookmark do |f| %>
+    <%# <%= f.association :company %>
+    <%= f.association :movie, collection: Movie.order(:title), prompt: "Choose a movie" %>
+    <%= f.input :comment, label: 'Add your comment:', error: 'Comment is mandatory, please specify one'  %>
+    <%= f.submit "Add movie", class: "btn btn-success" %>
+  <% end %>
+</div>
+
+<%= link_to "My Lists", lists_path %>
+<%= link_to "Go back to your list", list_path %>

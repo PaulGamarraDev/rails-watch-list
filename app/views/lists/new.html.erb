@@ -1,0 +1,9 @@
+<h1>Lists#new</h1>
+<div class="container">
+  <%= simple_form_for @list do |f| %>
+    <%= f.input :name, label: 'Your movie list name:', error: 'Username is mandatory, please specify one'  %>
+    <%= f.submit 'Create your list' %>
+  <% end %>
+</div>
+
+<%= link_to "My list", lists_path %>
